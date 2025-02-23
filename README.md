@@ -46,6 +46,6 @@ The primary objective of this project was to build a strong foundation in Power 
 ![task_3](https://github.com/user-attachments/assets/8d94c284-3d31-4dbf-a9d1-7fca1362c9f2)
 
 ### Result №3:
-![screenshot-task-3-power-bi-practice](https://github.com/user-attachments/assets/7ac66296-c981-44c1-8d43-c59fdcdff07f)
+![screenshot-task-3-power-bi-practice](https://github.com/user-attachments/assets/8353163c-b325-4d39-9939-b92651a1e669)
 
 ## What's next?
