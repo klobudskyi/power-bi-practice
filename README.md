@@ -70,14 +70,14 @@ VAR CountYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contra
 VAR CountTwoYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contract] = "Two year"))
 
 RETURN
-SWITCH(
-
-     TRUE(),
-     CountMonth >= CountYear && CountMonth >= CountTwoYear, "Month-to-month contract with an",
-     CountYear >= CountMonth && CountYear >= CountTwoYear, "One year contract with an",
-     CountTwoYear >= CountMonth && CountTwoYear >= CountYear, "Two year contract with an"
-
-)
+     SWITCH(
+     
+          TRUE(),
+          CountMonth >= CountYear && CountMonth >= CountTwoYear, "Month-to-month contract with an",
+          CountYear >= CountMonth && CountYear >= CountTwoYear, "One year contract with an",
+          CountTwoYear >= CountMonth && CountTwoYear >= CountYear, "Two year contract with an"
+     
+     )
 ```
 
 ![screenshot-task-2-power-bi-practice](https://github.com/user-attachments/assets/f816e263-e967-41e6-bd78-f9c7ca6ec498)
@@ -133,8 +133,10 @@ VAR __MEASURE_VALUE =
 
 RETURN
      IF(
+
           NOT ISBLANK(__MEASURE_VALUE),
           DIVIDE(__MEASURE_VALUE, __BASELINE_VALUE)
+
      )
 ```
 
