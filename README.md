@@ -59,6 +59,7 @@ A dashboard that analyses the behaviour of a telecoms company's customers, divid
 The list of portraits indicates the priority of actions.
 
 An example of the DAX formula used:
+
 ```DAX
 Portrait's Contract = 
 
@@ -113,6 +114,7 @@ Your task is to do the following:
 - Write what you think some root causes of their slow progress might be
 
 An example of the DAX formula used:
+
 ```DAX
 % of turnover =
 
