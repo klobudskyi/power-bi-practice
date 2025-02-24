@@ -70,6 +70,7 @@ VAR CountYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contra
 VAR CountTwoYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contract] = "Two year"))
 
 RETURN
+
      SWITCH(
      
           TRUE(),
@@ -132,6 +133,7 @@ VAR __MEASURE_VALUE =
      )
 
 RETURN
+
      IF(
 
           NOT ISBLANK(__MEASURE_VALUE),
