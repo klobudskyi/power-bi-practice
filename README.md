@@ -70,10 +70,12 @@ VAR CountTwoYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Con
 
 RETURN
 SWITCH(
-    TRUE(),
-    CountMonth >= CountYear && CountMonth >= CountTwoYear, "Month-to-month contract with an",
-    CountYear >= CountMonth && CountYear >= CountTwoYear, "One year contract with an",
-    CountTwoYear >= CountMonth && CountTwoYear >= CountYear, "Two year contract with an"
+
+     TRUE(),
+     CountMonth >= CountYear && CountMonth >= CountTwoYear, "Month-to-month contract with an",
+     CountYear >= CountMonth && CountYear >= CountTwoYear, "One year contract with an",
+     CountTwoYear >= CountMonth && CountTwoYear >= CountYear, "Two year contract with an"
+
 )
 ```
 
