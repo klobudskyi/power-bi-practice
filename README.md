@@ -5,7 +5,7 @@ The primary objective of this project was to build a strong foundation in Power 
 
 ## Description:
 
-PwC Switzerland Power BI Job Simulation on Forage:
+[PwC Switzerland Power BI Job Simulation](https://www.theforage.com/simulations/pwc-ch/power-bi-cqxg) on [Forage](https://www.theforage.com/about):
 
  - Completed a job simulation where I strengthened my PowerBI skills to better understand clients and their data visualisation needs.
  - Demonstrated expertise in data visualization through the creation of Power BI dashboards that effectively conveyed KPIs, showcasing the ability to respond to client requests with well-designed solutions.
@@ -30,7 +30,11 @@ Possible KPIs include (to get you started, but not limited to):
 
 ### Result №1:
 
+A dashboard that allows you to see the structure and dynamics of the performance of PhoneNow call center employees using three slicers:
 
+- Period (January, February, March)
+- Agent (Becky, Dan, Diane, Greg, Jim, Joe, Martha, Stewart)
+- Topic (Admin Support, Contract related, Payment related, Streaming, Technical Support)
 
 ![screenshot-task-1-power-bi-practice](https://github.com/user-attachments/assets/92aaf657-a17b-46d7-a184-9c28a830ad05)
 
@@ -45,7 +49,33 @@ Your colleague, the engagement partner, asks you to do the following tasks:
 
 ### Result №2:
 
+A dashboard that analyses the behaviour of a telecoms company's customers, dividing them into four categories depending on the presence of customer service tickets and churn:
 
+- Customers who had tickets and churned
+- Customers who had no tickets, but churned
+- Customers who have tickets, but didn't churn
+- Customers who have no tickets and didn't churn
+
+The list of portraits indicates the priority of actions.
+
+An example of the DAX formula used:
+```DAX
+Portrait's Contract = 
+
+VAR CountMonth = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contract] = "Month-to-month"))
+
+VAR CountYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contract] = "One year"))
+
+VAR CountTwoYear = COUNTROWS(FILTER('tickets - churn -', 'tickets - churn -'[Contract] = "Two year"))
+
+RETURN
+SWITCH(
+    TRUE(),
+    CountMonth >= CountYear && CountMonth >= CountTwoYear, "Month-to-month contract with an",
+    CountYear >= CountMonth && CountYear >= CountTwoYear, "One year contract with an",
+    CountTwoYear >= CountMonth && CountTwoYear >= CountYear, "Two year contract with an"
+)
+```
 
 ![screenshot-task-2-power-bi-practice](https://github.com/user-attachments/assets/f816e263-e967-41e6-bd78-f9c7ca6ec498)
 
@@ -80,9 +110,40 @@ Your task is to do the following:
 - Define relevant KPIs in hiring, promotion, performance and turnover, and create a visualisation
 - Write what you think some root causes of their slow progress might be
 
+An example of the DAX formula used:
+```DAX
+% of turnover =
+
+VAR __BASELINE_VALUE =
+
+     COUNT('Pharma Group AG'[FY20 leaver?])
+
+VAR __MEASURE_VALUE = 
+
+     CALCULATE(
+
+          COUNTA('Pharma Group AG'[FY20 leaver?]),
+          'Pharma Group AG'[FY20 leaver?] IN { "Yes" }
+
+     )
+
+RETURN
+     IF(
+          NOT ISBLANK(__MEASURE_VALUE),
+          DIVIDE(__MEASURE_VALUE, __BASELINE_VALUE)
+     )
+```
+
 ![task_3](https://github.com/user-attachments/assets/8d94c284-3d31-4dbf-a9d1-7fca1362c9f2)
 
 ### Result №3:
+
+A basic visualizations that show the results of calculations needed for setting KPIs.
+
 ![screenshot-task-3-power-bi-practice](https://github.com/user-attachments/assets/8353163c-b325-4d39-9939-b92651a1e669)
 
+> As we can see from the visualization, the average productivity for men and women is almost the same, which means that the problem is not in the results of work. However, subjective factors and biases in performance ratings that create systemic barriers can influence decisions about promotions or hiring. 
+
 ## What's next?
+
+Despite mastering the most common Power BI functions, I see the need to deepen the practice of using more complex tools such as DAX formulas, as this allows you to make reports and calculations more informative.
